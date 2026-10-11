@@ -33,7 +33,7 @@ console.log(arr.filter(s => s[1] === "kavita").flat());
 console.log("1st student who has least mark in physics");
 console.log(arr.reduceRight((s1, s2) => s1[4] < s2[4] ? s1 : s2));
 
-//6 Find which student have highest mark in Chemistry   5
+//6 Find which 1st student have highest mark in Chemistry   5
 
 console.log("1st student who has highest mark in chemistry");
 console.log(arr.reduceRight((s1, s2) => s1[5] > s2[5] ? s1 : s2));

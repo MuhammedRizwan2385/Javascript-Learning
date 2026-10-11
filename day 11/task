@@ -1,0 +1,131 @@
+accounts = [
+    {
+        acno: 1000, actype: 'savings', balance: 45000, transaction: [
+            {
+                to: 1001, amount: 6000, msg: 'ebil', mode: 'gpay'
+            },
+            {
+                to: 1002, amount: 2000, msg: 'emi', mode: 'neft'
+            },
+            {
+                to: 1003, amount: 1000, msg: 'recharge', mode: 'phonepe'
+            },
+        ]
+    },
+    {
+        acno: 1001, actype: 'current', balance: 30000, transaction: [
+            {
+                to: 1000, amount: 1000, msg: 'grossary', mode: 'gpay'
+            },
+            {
+                to: 1001, amount: 5000, msg: 'ebil', mode: 'gpay'
+            },
+            {
+                to: 1002, amount: 2000, msg: 'emi', mode: 'neft'
+            },
+            {
+                to: 1003, amount: 1000, msg: 'recharge', mode: 'phonepe'
+            },
+        ]
+    },
+    {
+        acno: 1002, actype: 'fixed', balance: 100000, transaction: [
+            {
+                to: 1000, amount: 5000, msg: 'ebil', mode: 'gpay'
+            },
+            {
+                to: 1001, amount: 2000, msg: 'emi', mode: 'neft'
+            },
+            {
+                to: 1003, amount: 1000, msg: 'recharge', mode: 'phonepe'
+            },
+        ]
+    },
+    {
+        acno: 1003, actype: 'savings', balance: 30000, transaction: [
+            {
+                to: 1001, amount: 7000, msg: 'ebil', mode: 'gpay'
+            },
+            {
+                to: 1002, amount: 2000, msg: 'emi', mode: 'neft'
+            },
+            {
+                to: 1000, amount: 1000, msg: 'recharge', mode: 'phonepe'
+            },
+        ]
+    }
+]
+//1 total number of accounts
+
+console.log("Total number of accounts: ", accounts.length);
+
+
+//2 print account number whose account type is savings
+console.log("account number whose account type is savings");
+accounts.filter(data => data.actype === "savings").forEach(data => console.log(data.acno));
+
+//3  print the balance of account number 1000
+
+console.log("the balance of account number 1000");
+
+// using filter and forEach
+
+// accounts.filter(data => data.acno === 1000).forEach(data => console.log(data.balance));
+
+// using find
+
+console.log(accounts.find(data => data.acno === 1000).balance);
+
+//4 print all gpay transactions
+console.log("gpay transactions");
+accounts.forEach(a =>
+    a.transaction.filter(t =>
+        t.mode == 'gpay'
+    ).forEach(t => console.log(t))
+);
+
+
+
+
+//5 print all transactions whose amount > 5000
+
+console.log("all transactions whose amount > 5000");
+accounts.forEach(a =>
+    a.transaction.filter(t =>
+        t.amount > 5000
+    ).forEach(t => console.log(t))
+);
+
+//6 print all credit transactions of account 1002
+console.log("all credit transactions of account 1002");
+accounts.forEach(a =>
+    a.transaction.filter(t => t.
+        to === 1002).forEach(t =>
+            console.log(t)
+        )
+);
+
+//7 print all debit transactions of account 1002
+console.log("all debit transactions of account 1002");
+accounts.filter(a =>
+    a.acno === 1002).forEach(t => console.log(t.transaction));
+
+//8 print the highest balance account details
+
+console.log("print the highest balance account details");
+
+console.log(accounts.reduce((a1, a2) => a1.balance > a2.balance ? a1 : a2));
+
+//9 print transaction history of 1002
+console.log("transaction history of 1002");
+accounts.filter(a=>
+    a.acno===1002
+).forEach(a=>console.log(a.transaction));
+
+
+//10 print transaction history of account 1003
+
+console.log("transaction history of 1003");
+accounts.filter(a=>
+    a.acno===1003
+).forEach(a=>console.log(a.transaction));
