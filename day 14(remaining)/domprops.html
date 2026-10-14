@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- html code -->
+
+    <!-- parentNode: Returns the parent node of an element -->
+
+    <div id="parent">
+        <div id="child">Child</div>
+    </div>
+
+    <!-- childNodes: Return the nodelist of an element-->
+
+    <ul id="listItems">
+        <li>Child-1</li>
+        <li>Child-1</li>
+        <li>Child-1</li>
+        <li>Child-1</li>
+    </ul>
+
+    <!-- 3. innerHTML -sets a content to HTML DOM -->
+
+    <div id="elmnt">
+        <p>Web Developer</p>
+    </div>
+
+
+    <p id="text">MEARN</p>
+    
+
+
+
+
+
+    <!-- javascript code -->
+  <script>
+
+   // <!-- 1.parentNode: Returns the parent node of an element -->
+
+    const childElement=document.getElementById('child');
+    console.log(childElement);
+    const parentElemnt=childElement.parentNode;
+    console.log(parentElemnt);
+
+    //  <!-- 2.childNodes: Return the nodelist of an element-->
+
+    const parentElmnt=document.getElementById('listItems');
+    console.log(parentElmnt);
+    const childElmnt=parentElmnt.childNodes;
+    console.log(childElmnt);
+
+    const elmnt=document.getElementById('elmnt');
+    elmnt.innerHTML='<h1 style=color:red>Luminar Technolab</h1>'
+
+
+    const textCnt=document.getElementById('text');
+    textCnt.textContent="MEARN STACK DEVELOPEMENT";
+
+
+
+
+
+  </script>
+
+
+</body>
+</html>

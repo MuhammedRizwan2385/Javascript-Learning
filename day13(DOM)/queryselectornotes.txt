@@ -1,0 +1,92 @@
+querySelector() & querySelectorAll() notes:
+
+1. document.querySelector()
+- Selects only the first element that matches the given CSS selector.
+- Returns a single HTML element.
+- If no element matches, it returns null.
+2. document.querySelectorAll()
+- Selects all elements that match the given CSS selector.
+- Returns a NodeList containing the matching elements.
+- If no elements match, it returns an empty NodeList.
+
+Example
+Suppose your HTML is:
+
+<p class="text">Hello</p>
+<p class="text">Welcome</p>
+<p class="text">JavaScript</p>
+
+
+Using querySelector():
+
+let result = document.querySelector(".text");
+
+console.log(result);
+
+
+Output:
+<p class="text">Hello</p>
+
+
+Only the first paragraph is selected.
+
+Using querySelectorAll()
+let result = document.querySelectorAll(".text");
+
+console.log(result);
+
+
+Output: A NodeList containing all three paragraph elements.
+NodeList(3) [
+  <p class="text">Hello</p>,
+  <p class="text">Welcome</p>,
+  <p class="text">JavaScript</p>
+]
+
+
+Practical example: Changing text color
+
+Suppose you want to change the color of all three paragraphs.
+Using querySelector():
+document.querySelector(".text").style.color = "red";
+
+
+Only the first paragraph becomes red.
+Using querySelectorAll():
+
+let elements = document.querySelectorAll(".text");
+
+elements.forEach(function(element) {
+    element.style.color = "red";
+});
+
+
+Important things to remember
+
+1. Both methods support CSS selectors:
+
+document.querySelector("#heading");   // ID
+document.querySelector(".box");       // Class
+document.querySelector("p");          // Tag
+
+
+2. querySelectorAll() returns a NodeList, so you can access individual elements using indexes:
+
+let elements = document.querySelectorAll(".text");
+
+console.log(elements[0]); // First paragraph
+console.log(elements[1]); // Second paragraph
+console.log(elements.length); // 3
+
+
+3. Both methods return a static selection. If you add new matching elements to the HTML later, an existing NodeList from querySelectorAll() will not automatically include them.
+
+QUICK COMPARISON
+
+Feature                  | querySelector()             | querySelectorAll()
+-------------------------|-----------------------------|-------------------------
+Selects                  | First matching element      | All matching elements
+Returns                  | Single element or null      | NodeList
+Access elements          | Directly                    | Using an index or loop
+Updates all elements?    | No                          | Yes, by iterating
+Supports CSS selectors?  | Yes                         | Yes

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+    <h1 id="head">DOM MANIPULATION</h1>
+    <ul>
+        <li>document.getElementById()</li>
+        <li class="cls">document.getElementByClassName()</li>
+        <li>document.getElementByTagName()</li>
+        <li class="cls">document.querySelector()</li>
+        <li>document.querySelectorAll()</li>
+    </ul>
+    <button class="btn" onclick="buttonClick()">Submit</button>
+
+    <script>
+
+        // document.getElementById()
+
+        // const documentId=document.getElementById('head');
+        // console.log(documentId);
+        // documentId.style.color="blue";
+
+        // document.getElementByClassName()
+
+        // const documentCls=document.getElementsByClassName("cls");
+        // console.log(documentCls);
+
+        // html collection into array
+
+        // console.log(Array.from(documentCls));
+        // console.log(Array.from(documentCls).map(item=>item.style.color="red"));
+
+        // document.getElementsByTagName()
+
+        // const documentTag=document.getElementsByTagName("li");
+        // console.log(documentTag);
+
+        // html collection into array
+
+        // console.log([...documentTag]);
+        // console.log([...documentTag].map(item=>item.style.color="green"));
+
+        // document.querySelector()
+
+        const query=document.querySelector('li');
+        console.log(query);
+        const queryId=document.querySelector('#head')
+        console.log(queryId);
+
+
+        // document.querySelectorAll()
+
+         const queryAll=document.querySelectorAll('li');
+        console.log(queryAll);
+        const queryCls=document.querySelectorAll('.cls')
+        console.log(queryCls);
+
+        // button
+
+    const queryBtn=document.querySelector('.btn');
+    console.log(queryBtn);
+
+
+
+     function buttonClick(){
+        alert("Submit Button clicked");
+     }
+
+
+
+    </script>
+
+
+
+
+
+</body>
+</html>

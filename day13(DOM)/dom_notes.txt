@@ -1,0 +1,873 @@
+============================================================
+             JAVASCRIPT DOM - COMPLETE NOTES
+============================================================
+
+1. WHAT IS DOM?
+---------------
+
+DOM stands for Document Object Model.
+
+- The DOM represents an HTML document as a tree of objects.
+- JavaScript uses the DOM to access and manipulate HTML elements.
+- We can change HTML content, styles, attributes, and structure.
+- We can also respond to user actions such as clicks and typing.
+
+Example HTML:
+
+<html>
+<body>
+    <h1 id="heading">Hello World</h1>
+</body>
+</html>
+
+JavaScript:
+
+document.getElementById("heading").innerHTML = "Welcome";
+
+Output:
+The heading changes from "Hello World" to "Welcome".
+
+
+2. DOM TREE
+-----------
+
+The DOM represents HTML elements in a hierarchical structure.
+
+Example:
+
+<html>
+  |
+  +-- <body>
+        |
+        +-- <h1>
+        |
+        +-- <p>
+
+important: Refer to the image file: img_htmltree_800.svg
+
+Important terms:
+
+- Document: The entire HTML document.
+- Element: An HTML tag such as <p>, <div>, or <h1>.
+- Node: An item in the DOM tree.
+- Parent: An element that contains another element.
+- Child: An element contained inside another element.
+- Sibling: Elements that share the same parent.
+
+
+3. SELECTING HTML ELEMENTS
+--------------------------
+
+A) getElementById()
+
+Selects an element using its ID.
+
+Syntax:
+document.getElementById("id");
+
+Example:
+let heading = document.getElementById("heading");
+
+B) getElementsByClassName()
+
+Selects all elements with the specified class.
+
+Syntax:
+document.getElementsByClassName("className");
+
+Example:
+let items = document.getElementsByClassName("item");
+
+Returns:
+HTMLCollection.
+
+C) getElementsByTagName()
+
+Selects all elements with the specified tag name.
+
+Syntax:
+document.getElementsByTagName("p");
+
+Example:
+let paragraphs = document.getElementsByTagName("p");
+
+Returns:
+HTMLCollection.
+
+D) querySelector()
+
+Selects the first element matching a CSS selector.
+
+Syntax:
+document.querySelector("CSS selector");
+
+Examples:
+document.querySelector("#heading");  // ID
+document.querySelector(".box");      // Class
+document.querySelector("p");         // Tag
+
+Returns:
+A single element or null.
+
+E) querySelectorAll()
+
+Selects all elements matching a CSS selector.
+
+Syntax:
+document.querySelectorAll("CSS selector");
+
+Example:
+let items = document.querySelectorAll(".item");
+
+Returns:
+NodeList.
+
+You can use forEach() to iterate over the NodeList.
+
+Example:
+items.forEach(function(item) {
+    console.log(item);
+});
+
+
+important:refer to querySelectornotes in this folder
+
+4. QUICK COMPARISON OF SELECTORS
+--------------------------------
+
+Feature                  | getElementById()       | querySelector()
+-------------------------|------------------------|---------------------
+Selection                | Element with an ID     | First CSS match
+Returns                  | Element or null        | Element or null
+CSS selectors supported? | No, accepts an ID      | Yes
+
+Feature                  | getElementsByClassName() | querySelectorAll()
+-------------------------|--------------------------|--------------------
+Selection                | All matching classes    | All CSS matches
+Returns                  | HTMLCollection           | NodeList
+Updates automatically?   | Yes, live collection     | No, static collection
+Supports forEach()?      | Not directly in general  | Yes
+
+IMPORTANT:
+- HTMLCollection is generally a live collection.
+- NodeList from querySelectorAll() is static.
+- Both querySelector() and querySelectorAll() support CSS selectors.
+
+
+5. CHANGING HTML CONTENT
+------------------------
+
+A) innerHTML
+
+Gets or sets the HTML content inside an element.
+
+Example:
+document.getElementById("demo").innerHTML = "<b>Hello</b>";
+
+Result:
+The word Hello appears in bold.
+
+B) textContent
+
+Gets or sets all text content inside an element.
+
+Example:
+document.getElementById("demo").textContent = "Hello World";
+
+HTML tags included in the assigned string are treated as text.
+
+C) innerText
+
+Gets or sets the rendered text of an element.
+
+Example:
+document.getElementById("demo").innerText = "Welcome";
+
+Comparison:
+
+Property       | Purpose
+---------------|----------------------------------
+innerHTML      | Reads or writes HTML markup
+textContent    | Reads or writes text content
+innerText      | Reads or writes rendered text
+
+NOTE:
+Use textContent when you only need to insert plain text.
+Avoid inserting untrusted input through innerHTML because it
+can create cross-site scripting (XSS) vulnerabilities.
+
+
+6. CHANGING CSS STYLES
+----------------------
+
+JavaScript can change CSS styles using the style property.
+
+Example HTML:
+<p id="demo">Hello World</p>
+
+JavaScript:
+let element = document.getElementById("demo");
+
+element.style.color = "red";
+element.style.backgroundColor = "yellow";
+element.style.fontSize = "25px";
+element.style.display = "none";
+
+IMPORTANT:
+- CSS properties written in kebab-case become camelCase in JS.
+- background-color becomes backgroundColor.
+- font-size becomes fontSize.
+- Use strings for CSS values.
+
+Example:
+element.style.marginTop = "20px";
+
+
+7. WORKING WITH ATTRIBUTES
+--------------------------
+
+A) getAttribute()
+
+Reads an attribute value.
+
+Example:
+let link = document.querySelector("a");
+console.log(link.getAttribute("href"));
+
+B) setAttribute()
+
+Sets or changes an attribute.
+
+Example:
+link.setAttribute("href", "https://example.com");
+
+C) removeAttribute()
+
+Removes an attribute.
+
+Example:
+link.removeAttribute("target");
+
+D) hasAttribute()
+
+Checks whether an attribute exists.
+
+Example:
+console.log(link.hasAttribute("href"));
+
+E) Direct property access
+
+Example:
+let image = document.querySelector("img");
+
+image.src = "photo.jpg";
+image.alt = "A photo";
+
+
+8. WORKING WITH CLASSES
+------------------------
+
+A) classList.add()
+
+Adds a class.
+
+element.classList.add("active");
+
+B) classList.remove()
+
+Removes a class.
+
+element.classList.remove("active");
+
+C) classList.toggle()
+
+Adds the class if absent; removes it if present.
+
+element.classList.toggle("active");
+
+D) classList.contains()
+
+Checks whether a class exists.
+
+console.log(element.classList.contains("active"));
+
+E) classList.replace()
+
+Replaces one class with another.
+
+element.classList.replace("old", "new");
+
+
+9. CREATING AND REMOVING ELEMENTS
+----------------------------------
+
+A) createElement()
+
+Creates a new HTML element.
+
+let paragraph = document.createElement("p");
+
+B) createTextNode()
+
+Creates a text node.
+
+let text = document.createTextNode("Hello World");
+
+C) appendChild()
+
+Adds a node as the last child.
+
+paragraph.appendChild(text);
+
+D) append()
+
+Adds text or nodes at the end of an element.
+
+document.body.append(paragraph);
+
+E) prepend()
+
+Adds content at the beginning.
+
+document.body.prepend(paragraph);
+
+F) remove()
+
+Removes an element.
+
+paragraph.remove();
+
+G) removeChild()
+
+Removes a child node from its parent.
+
+parent.removeChild(child);
+
+H) before() and after()
+
+Insert content before or after an element.
+
+element.before(paragraph);
+element.after(paragraph);
+
+Example: Create a new paragraph.
+
+let paragraph = document.createElement("p");
+
+paragraph.textContent = "This is a new paragraph.";
+
+document.body.appendChild(paragraph);
+
+
+10. DOM TRAVERSAL
+------------------
+
+DOM traversal means moving between related elements.
+
+A) parentElement
+
+Returns the parent element.
+
+element.parentElement;
+
+B) children
+
+Returns the child elements.
+
+element.children;
+
+C) firstElementChild
+
+Returns the first child element.
+
+element.firstElementChild;
+
+D) lastElementChild
+
+Returns the last child element.
+
+element.lastElementChild;
+
+E) nextElementSibling
+
+Returns the next sibling element.
+
+element.nextElementSibling;
+
+F) previousElementSibling
+
+Returns the previous sibling element.
+
+element.previousElementSibling;
+
+G) parentNode
+
+Returns the parent node, which may not always be an element.
+
+H) childNodes
+
+Returns all child nodes, including text nodes and comments.
+
+IMPORTANT:
+- children contains only element children.
+- childNodes can contain whitespace text nodes.
+- Prefer firstElementChild when you need an HTML element.
+
+
+11. ADDING EVENT LISTENERS
+---------------------------
+
+An event is an action that happens in the browser.
+
+Examples:
+- Clicking a button
+- Typing into an input
+- Submitting a form
+- Moving the mouse
+- Loading a page
+
+Syntax:
+
+element.addEventListener("event", function() {
+    // Code to execute
+});
+
+Example HTML:
+<button id="btn">Click Me</button>
+
+JavaScript:
+
+let button = document.getElementById("btn");
+
+button.addEventListener("click", function() {
+    alert("Button clicked!");
+});
+
+IMPORTANT:
+addEventListener() is preferred for attaching event handlers
+because multiple listeners can be attached to the same event.
+
+
+12. COMMON JAVASCRIPT EVENTS
+-----------------------------
+
+Event             | Description
+------------------|--------------------------------
+click             | Element is clicked
+dblclick          | Element is double-clicked
+mouseover         | Pointer moves onto an element
+mouseout          | Pointer leaves an element
+mouseenter        | Pointer enters an element
+mouseleave        | Pointer leaves an element
+keydown           | A keyboard key is pressed
+keyup             | A keyboard key is released
+input             | Input value changes during editing
+change            | A value change is committed
+submit            | A form is submitted
+focus             | Element receives focus
+blur              | Element loses focus
+DOMContentLoaded  | HTML document has been parsed
+
+Example:
+
+let input = document.querySelector("#username");
+
+input.addEventListener("input", function() {
+    console.log(input.value);
+});
+
+
+13. THE EVENT OBJECT
+---------------------
+
+The event object contains information about an event.
+
+Example:
+
+button.addEventListener("click", function(event) {
+    console.log(event);
+});
+
+Important properties:
+
+event.target
+- The element that triggered the event.
+
+event.currentTarget
+- The element on which the listener is registered.
+
+event.type
+- The event type, such as "click".
+
+Example:
+
+button.addEventListener("click", function(event) {
+    console.log(event.target);
+    console.log(event.currentTarget);
+    console.log(event.type);
+});
+
+
+14. PREVENTING DEFAULT BEHAVIOUR
+---------------------------------
+
+preventDefault() stops the browser's default action.
+
+Example: Prevent a form from reloading the page.
+
+let form = document.querySelector("#myForm");
+
+form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    console.log("Form submitted");
+});
+
+Examples of default actions:
+- A form submitting to a server
+- A link navigating to another page
+
+IMPORTANT:
+preventDefault() does not stop event propagation.
+
+
+15. EVENT PROPAGATION
+----------------------
+
+Event propagation describes how events travel through the DOM.
+
+Phases:
+1. Capturing phase
+2. Target phase
+3. Bubbling phase
+
+Event bubbling:
+The event travels from the target element up through its ancestors.
+
+Example:
+
+parent.addEventListener("click", function() {
+    console.log("Parent clicked");
+});
+
+child.addEventListener("click", function() {
+    console.log("Child clicked");
+});
+
+If the child is clicked, the child handler runs first, followed
+by the parent handler during bubbling.
+
+stopPropagation():
+
+event.stopPropagation();
+
+Stops the event from continuing to propagate.
+
+IMPORTANT:
+- preventDefault() prevents the default action.
+- stopPropagation() stops event propagation.
+
+
+16. EVENT DELEGATION
+---------------------
+
+Event delegation means attaching one event listener to a parent
+instead of attaching separate listeners to many child elements.
+
+Example:
+
+document.querySelector("#list").addEventListener("click",
+    function(event) {
+        if (event.target.matches("li")) {
+            console.log(event.target.textContent);
+        }
+    }
+);
+
+Advantages:
+- Fewer event listeners
+- Works for matching child elements added later
+- Useful for dynamic lists and tables
+
+
+17. THE VALUE PROPERTY
+-----------------------
+
+The value property is used to get or set the value of form controls.
+
+HTML:
+<input type="text" id="username">
+
+JavaScript:
+
+let input = document.getElementById("username");
+
+console.log(input.value);
+
+Set a value:
+
+input.value = "Rizwan";
+
+IMPORTANT:
+- Use value for input, select, and textarea elements.
+- Use textContent or innerHTML for element content.
+
+
+18. FORM VALIDATION
+--------------------
+
+Example HTML:
+
+<form id="myForm">
+    <input type="text" id="username" required>
+    <button type="submit">Submit</button>
+</form>
+
+JavaScript:
+
+let form = document.querySelector("#myForm");
+let username = document.querySelector("#username");
+
+form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    if (username.value.trim() === "") {
+        alert("Please enter your name");
+    } else {
+        alert("Form submitted successfully");
+    }
+});
+
+trim() removes whitespace from the beginning and end of a string.
+
+NOTE:
+Client-side validation improves user experience but does not
+replace server-side validation.
+
+
+19. DOM DOCUMENT PROPERTIES
+----------------------------
+
+document.title
+- Gets or sets the page title.
+
+document.URL
+- Returns the document URL.
+
+document.body
+- Returns the body element.
+
+document.head
+- Returns the head element.
+
+document.documentElement
+- Returns the root HTML element.
+
+document.forms
+- Returns the document's forms collection.
+
+document.images
+- Returns the document's images collection.
+
+document.links
+- Returns the document's links collection.
+
+Example:
+
+console.log(document.title);
+console.log(document.body);
+console.log(document.URL);
+
+
+20. ELEMENT DIMENSIONS AND SCROLLING
+-------------------------------------
+
+element.clientWidth
+- Inner width including padding but excluding borders and
+  vertical scrollbars.
+
+element.clientHeight
+- Inner height including padding but excluding borders and
+  horizontal scrollbars.
+
+element.offsetWidth
+- Width including padding and borders.
+
+element.offsetHeight
+- Height including padding and borders.
+
+element.getBoundingClientRect()
+- Returns the element's size and position relative to the
+  viewport.
+
+element.scrollTop
+- Vertical scroll position inside a scrollable element.
+
+element.scrollLeft
+- Horizontal scroll position inside a scrollable element.
+
+
+21. TIMING AND DOM READY
+-------------------------
+
+DOMContentLoaded fires when the HTML document has been parsed
+and the DOM is ready. Images and other resources may still load.
+
+Example:
+
+document.addEventListener("DOMContentLoaded", function() {
+    console.log("DOM is ready");
+});
+
+A script using defer also runs after HTML parsing and before
+DOMContentLoaded.
+
+Example HTML:
+
+<script src="script.js" defer></script>
+
+Using defer is a common way to load an external JavaScript file
+without blocking HTML parsing.
+
+
+22. COMMON DOM MISTAKES
+------------------------
+
+1. Using the wrong ID or class name.
+2. Running JavaScript before the HTML element exists.
+3. Using querySelectorAll() as though it returns one element.
+4. Forgetting to use a loop when updating multiple elements.
+5. Using innerHTML when textContent is sufficient.
+6. Forgetting event.preventDefault() when needed for a form.
+7. Confusing event.target with event.currentTarget.
+8. Using className when classList methods are more suitable.
+9. Forgetting that querySelectorAll() returns a static NodeList.
+10. Trying to use innerHTML on an element that is null.
+
+
+23. COMPLETE MINI PROJECT: CLICK COUNTER
+-----------------------------------------
+
+HTML:
+
+<h2 id="count">0</h2>
+<button id="increase">Increase</button>
+<button id="decrease">Decrease</button>
+<button id="reset">Reset</button>
+
+JavaScript:
+
+let count = 0;
+
+let countDisplay = document.querySelector("#count");
+let increaseBtn = document.querySelector("#increase");
+let decreaseBtn = document.querySelector("#decrease");
+let resetBtn = document.querySelector("#reset");
+
+increaseBtn.addEventListener("click", function() {
+    count++;
+    countDisplay.textContent = count;
+});
+
+decreaseBtn.addEventListener("click", function() {
+    count--;
+    countDisplay.textContent = count;
+});
+
+resetBtn.addEventListener("click", function() {
+    count = 0;
+    countDisplay.textContent = count;
+});
+
+
+24. QUICK REVISION TABLE
+-------------------------
+
+Method / Property          | Purpose
+---------------------------|--------------------------------
+getElementById()           | Select element by ID
+getElementsByClassName()   | Select elements by class
+getElementsByTagName()     | Select elements by tag
+querySelector()            | Select first CSS match
+querySelectorAll()         | Select all CSS matches
+innerHTML                  | Read or write HTML markup
+textContent                | Read or write text content
+innerText                  | Read or write rendered text
+style                      | Change inline CSS styles
+classList.add()            | Add a class
+classList.remove()         | Remove a class
+classList.toggle()         | Toggle a class
+classList.contains()       | Check for a class
+getAttribute()             | Read an attribute
+setAttribute()             | Set an attribute
+removeAttribute()          | Remove an attribute
+createElement()            | Create an element
+appendChild()              | Append a node
+append()                   | Append text or nodes
+remove()                   | Remove an element
+parentElement              | Access parent element
+children                   | Access child elements
+addEventListener()         | Register an event handler
+preventDefault()            | Prevent the default action
+stopPropagation()           | Stop event propagation
+matches()                  | Check whether an element matches
+closest()                  | Find nearest matching ancestor
+value                      | Read or set form control value
+focus()                    | Give an element focus
+blur()                     | Remove focus from an element
+
+
+25. IMPORTANT INTERVIEW QUESTIONS
+----------------------------------
+
+1. What is the DOM?
+   The Document Object Model represents an HTML document as
+   objects that JavaScript can access and manipulate.
+
+2. What is the difference between querySelector() and
+   querySelectorAll()?
+   querySelector() returns the first matching element.
+   querySelectorAll() returns a static NodeList of all matches.
+
+3. What is the difference between HTMLCollection and NodeList?
+   HTMLCollection contains elements and is generally live.
+   NodeList can contain different node types, depending on how
+   it is obtained. querySelectorAll() returns a static NodeList.
+
+4. What is the difference between innerHTML and textContent?
+   innerHTML works with HTML markup, while textContent works
+   with text content.
+
+5. What is event bubbling?
+   An event propagates from the target element toward its
+   ancestors.
+
+6. What is event delegation?
+   It is the technique of handling events on child elements
+   through a listener attached to a common parent.
+
+7. What is preventDefault()?
+   It prevents the browser's default action for an event.
+
+8. What is stopPropagation()?
+   It prevents an event from propagating further.
+
+9. What is classList?
+   It provides methods to add, remove, toggle, and check CSS
+   classes on an element.
+
+10. What is DOM traversal?
+    It means navigating between parent, child, and sibling
+    nodes or elements.
+
+11. What is the difference between target and currentTarget?
+    target is the event's originating element; currentTarget
+    is the element whose listener is currently running.
+
+12. What is the difference between live and static collections?
+    A live collection updates when the DOM changes; a static
+    collection represents the selection at the time it was made.
+
+============================================================
+                     END OF NOTES
+============================================================
