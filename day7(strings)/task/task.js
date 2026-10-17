@@ -19,9 +19,9 @@ console.log("hari\"".length) */
 /*3 Extract the amount out of  the string
     "Please give Rs 10000"*/
 
-let str = "Please give Rs 10000";
-amount = str.match(/\d+/);
-console.log(amount[0]);
+// let str = "Please give Rs 10000";
+// amount = str.match(/\d+/);
+// console.log(amount[0]);
 
 
 
@@ -67,37 +67,69 @@ console.log(amount[0]);
 
 //7 Write a function to count the number of vowels and consonants in a given string.
 
-function vowelsconsonants(word) {
-    var vowelCount = 0, consonantCount = 0;
-    for (let i of word) {
-        if (i == 'A' || i == 'a' || i == 'E' || i == 'e' || i == 'I' || i == 'i' || i == 'O' || i == 'o' || i == 'U' || i == 'u') {
-            vowelCount += 1;
-        }
-        else {
-            consonantCount += 1;
-        }
-    }
-    console.log("vowelcount:", vowelCount);
-    console.log("Consonantcount:", consonantCount);
+// function vowelsconsonants(word) {
+//     var vowelCount = 0, consonantCount = 0;
+//     for (let i of word) {
+//         if (i == 'A' || i == 'a' || i == 'E' || i == 'e' || i == 'I' || i == 'i' || i == 'O' || i == 'o' || i == 'U' || i == 'u') {
+//             vowelCount += 1;
+//         }
+//         else {
+//             consonantCount += 1;
+//         }
+//     }
+//     console.log("vowelcount:", vowelCount);
+//     console.log("Consonantcount:", consonantCount);
 
-}
-var word = "silent";
-vowelsconsonants(word);
+// }
+// var word = "silent";
+// vowelsconsonants(word);
 
 //8 Write a function that capitalizes the first letter of each word in a sentence. For example, "hello world" should become "Hello World.“
 
-function capitalise(sentence) {
-    var newsentence = sentence.split(" ");
-    for (let i = 0; i < newsentence.length; i++) {
-        newsentence[0] = newsentence[0][0].toUpperCase() + newsentence[0].slice(1);
-    }
-    newsentence = newsentence.join(" ")
-    console.log(newsentence);
+// function capitalise(sentence) {
+//     var newsentence = sentence.split(" ");
+//     for (let i = 0; i < newsentence.length; i++) {
+//         newsentence[i] = newsentence[i][0].toUpperCase() + newsentence[i].slice(1);
+//     }
+//     newsentence = newsentence.join(" ")
+//     console.log(newsentence);
 
-}
-capitalise("hello world");
+// }
+// capitalise("hello world");
 
 
 /*9 Implement a function to perform basic string compression using the counts of repeated characters. For example, the string "aabcccccaaa" would become "a2b1c5a3.“*/
 
+function compString(str) {
+    let result = "";
+    let count = 1;
+
+    for (i = 0; i < str.length; i++) {
+        if (str[i] == str[i + 1]) {
+            count += 1;
+        }
+        else {
+            result = result + str[i] + count;
+            count = 1;
+        }
+    }
+    return result;
+}
+console.log(compString("aabcccccaaa"));
+
 /*10 Implement a basic string compression without creating a separate function. Use loops and conditional statements to create the compressed string.*/
+
+let str = "aabcccccaaa";
+let result = "";
+let count = 1;
+
+for (i = 0; i < str.length; i++) {
+    if (str[i] == str[i + 1]) {
+        count += 1;
+    }
+    else {
+        result = result + str[i] + count;
+        count = 1;
+    }
+}
+console.log(result);
