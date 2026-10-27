@@ -8,7 +8,7 @@ commenting
 */
 
 //variable declaration
- 
+
 // a;
 var b;
 // let c;
@@ -24,5 +24,6 @@ var b;
 // console.log(a);
 // console.log(a,b,c,d);
 
-let text="apple"
-console.log(text.slice(1,3));
+let text = "apple"
+console.log(text.slice(1, 3));
+

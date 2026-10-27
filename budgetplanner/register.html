@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+      <!-- boostrap link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+       <!-- boostrap script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+    <!-- external css -->
+     <link rel="stylesheet" type="text/css" href="./register.css">
+
+</head>
+<body >
+    <div class="container mt-3 pt-3">
+        <h1 class="text-center text-primary">Smart Wallet</h1>
+        <h3 class="text-center text-primary">Manage Your Money, Build Your Future.</h3>
+    </div>
+    <div class="container pb-5 pt-5">
+        <div class="row d-flex flex-row justify-content-around  align-items-stretch  g-4">
+            
+            <div class="col-12 col-md-6 ">
+                <img src="https://moneypatrol.com/moneytalk/wp-content/uploads/2023/06/budget445.png"class="img-fluid border border-3 rounded-5 shadow-lg w-100 h-100 register-img" width="100%" >
+            </div>
+            <div class="col-12 col-md-4 ">
+                <!-- From Uiverse.io by Yaya12085 --> 
+                <form class="form border border-3 rounded-5 shadow-lg w-100 h-100">
+                    <p class="title">Register </p>
+                    <p class="message">Signup now and get full access to our app. </p>
+                       
+                    <label>
+                        <input required="" placeholder="" type="text" class="input" id="uname">
+                        <span>Username</span>
+                    </label> 
+
+                    <label>
+                        <input required="" placeholder="" type="email" class="input" id="mail">
+                        <span>Email</span>
+                    </label> 
+                        
+                    <label>
+                        <input required="" placeholder="" type="password" class="input" id="pass">
+                        <span>Password</span>
+                    </label>
+                    <label>
+                        <input required="" placeholder="" type="password" class="input" id="confirmpass">
+                        <span>Confirm password</span>
+                    </label>
+                    <button class="submit" type="button" onclick="register()">Register</button>
+                    <p class="signin">Already have an acount ? <a href="index.html">Signin</a> </p>
+                </form>
+                        </div>
+            
+        </div>
+    </div >
+
+</body>
+<script src="./script.js"></script>
+</html>

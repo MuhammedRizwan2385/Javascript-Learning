@@ -1,0 +1,550 @@
+/* navbar css */
+.main-navbar{
+    background-color: white;
+    padding: 10px 0;
+    min-height: 60px;
+    border-bottom: 1px solid #e8eaf5;
+}
+
+.navbar-brand{
+display:flex;
+align-items: center;
+gap: 8px;
+color:#171c4b;
+font-size: 23px;
+font-weight: 700;
+text-decoration:none ;
+}
+
+.brand-highlight {
+    color: #6258e8;
+}   
+
+.brand-logo{
+    font-size: 38px;
+    color: #6258e8;
+    line-height: 1;
+
+}
+
+.main-navbar .nav-link{
+    position: relative;
+    color: #25294c;
+    padding:8px 4px;
+    font-size: 14px;
+    font-weight: 500 ;
+    transition: color 0.3s ease;
+}
+
+.main-navbar .nav-link:hover{
+    color:#6258e8;
+}
+
+.main-navbar .nav-link.active{
+    color:#6258e8;
+
+}
+
+.main-navbar .nav-link.active::after{
+    content:"";
+    position: absolute;
+    left:0;
+    bottom: 0;
+    width:100%;
+    height:2px;
+    background-color:  #6258e8;
+}
+
+/* end of navbar and header css */
+
+
+
+/* HERO SECTION */
+.hero-section {
+    background-color: #f2f3ff;
+    padding: 20px 0;
+}
+
+/* Small label */
+.hero-label {
+    display: inline-block;
+    background-color: #e2e2ff;
+    color: #6258e8;
+    padding: 8px 14px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Main heading */
+.hero-title {
+    color: #171c4b;
+    font-size: 42px;
+    font-weight: 700;
+}
+
+/* Description */
+.hero-description {
+    color: #555b7a;
+    font-size: 16px;
+    line-height: 1.7;
+    max-width: 550px;
+}
+
+/* Features */
+.hero-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+    margin-top: 24px;
+}
+
+.hero-features p {
+    color: #25294c;
+    font-size: 14px;
+    margin: 0;
+}
+
+.hero-features i {
+    color: #6258e8;
+    margin-right: 6px;
+}
+
+/* Mobile styling */
+@media (max-width: 576px) {
+    .hero-title {
+        font-size: 32px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+    }
+
+    .hero-features {
+        flex-direction: column;
+        gap: 12px;
+    }
+}
+
+/* CALCULATOR SECTION */
+.calculator-section {
+    background-color: #ffffff;
+}
+
+.calculator-card {
+    background-color: #ffffff;
+    padding: 30px;
+    border: 1px solid #e2e6f5;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(40, 40, 90, 0.06);
+}
+
+/* Heading */
+.calculator-card h2 {
+    color: #171c4b;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.calculator-description {
+    color: #69708e;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+/* Labels */
+.calculator-card .form-label {
+    color: #171c4b;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* Inputs */
+.calculator-card .form-control {
+    padding: 12px 14px;
+    border: 1px solid #dce1ef;
+    border-radius: 9px;
+}
+
+.calculator-card .form-control:focus {
+    border-color: #6258e8;
+    box-shadow: 0 0 0 3px rgba(98, 88, 232, 0.12);
+}
+
+/* Calculate Button */
+.calculate-btn {
+    background-color: #6258e8;
+    color: #ffffff;
+    padding: 12px;
+    border-radius: 9px;
+    font-weight: 600;
+}
+
+.calculate-btn:hover {
+    background-color: #4f45d1;
+    color: #ffffff;
+}
+
+/* Reset Button */
+.reset-btn {
+    background-color: #f6f7fc;
+    color: #34395e;
+    border: 1px solid #dce1ef;
+    padding: 12px;
+    border-radius: 9px;
+}
+
+.reset-btn:hover {
+    background-color: #e9eaf8;
+}
+
+/* Mobile styling */
+@media (max-width: 576px) {
+    .calculator-card {
+        padding: 20px;
+    }
+
+    .calculator-card h2 {
+        font-size: 21px;
+    }
+}
+
+.bmi-range-bar {
+    position: relative;
+}
+
+.bmi-marker {
+    position: absolute;
+    top: -5px;
+    left: 0%;
+    width: 12px;
+    height: 30px;
+    background-color: #25213b;
+    border: 3px solid white;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    transform: translateX(-50%);
+    transition: left 0.5s ease;
+    z-index: 2;
+}
+
+/* RESULT SECTION */
+.result-section {
+    padding: 20px 0;
+    background-color: #ffffff;
+}
+
+.result-card {
+    padding: 30px;
+    background: linear-gradient(135deg, #f5f4ff, #eef1ff);
+    border: 1px solid #e2e5fa;
+    border-radius: 16px;
+}
+
+.result-card h2 {
+    color: #171c4b;
+    font-size: 23px;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+/* Empty state */
+.empty-state {
+    text-align: center;
+    padding: 25px 10px;
+}
+
+.empty-state > i {
+    font-size: 45px;
+    color: #6258e8;
+}
+
+.empty-state h3 {
+    font-size: 18px;
+    color: #25294c;
+    margin-top: 15px;
+}
+
+.empty-state p,
+.result-description {
+    color: #69708e;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* BMI value */
+.result-label {
+    color: #69708e;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.bmi-value {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    color: #171c4b;
+    margin-bottom: 15px;
+}
+
+.bmi-value #bmiValue {
+    font-size: 48px;
+    font-weight: 800;
+}
+
+.bmi-unit {
+    color: #69708e;
+    font-size: 14px;
+}
+
+/* Category badge */
+.category-badge {
+    display: inline-block;
+    padding: 9px 18px;
+    border-radius: 25px;
+    background-color: #d8f7e5;
+    color: #147a42;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+
+/* BMI RESULT BADGE COLOURS */
+
+.category-badge.underweight {
+    background-color: #fff0cc;
+    color: #885700;
+}
+
+.category-badge.normal {
+    background-color: #d9f7e5;
+    color: #147a42;
+}
+
+.category-badge.overweight {
+    background-color: #ffebcc;
+    color: #995000;
+}
+
+.category-badge.obesity {
+    background-color: #ffe1e1;
+    color: #b42332;
+}
+
+.result-description {
+    margin-top: 15px;
+}
+
+/* BMI range bar */
+.bmi-range-bar {
+    display: flex;
+    gap: 3px;
+    height: 12px;
+    margin-top: 25px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.range-segment {
+    flex: 1;
+}
+
+.range-segment.underweight {
+    background-color: #f9b52e;
+}
+
+.range-segment.normal {
+    background-color: #22b879;
+}
+
+.range-segment.overweight {
+    background-color: #f59b28;
+}
+
+.range-segment.obesity {
+    background-color: #f04452;
+}
+
+/* Range labels */
+.range-labels {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    text-align: center;
+    margin-top: 12px;
+}
+
+.range-labels div {
+    display: flex;
+    flex-direction: column;
+    font-size: 11px;
+}
+
+.range-labels div:nth-child(1) {
+    color: #bd7900;
+}
+
+.range-labels div:nth-child(2) {
+    color: #148453;
+}
+
+.range-labels div:nth-child(3) {
+    color: #c66a00;
+}
+
+.range-labels div:nth-child(4) {
+    color: #d52e3e;
+}
+
+.range-labels small {
+    margin-top: 5px;
+    color: #555b7a;
+}
+
+/* Disclaimer */
+.health-disclaimer {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 25px;
+    padding: 15px;
+    background-color: #e9eaff;
+    border: 1px solid #dfe1ff;
+    border-radius: 10px;
+}
+
+.health-disclaimer i {
+    color: #3e4a87;
+    font-size: 18px;
+}
+
+.health-disclaimer p {
+    color: #555b7a;
+    font-size: 12px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+    .result-card {
+        padding: 20px;
+    }
+
+    .bmi-value #bmiValue {
+        font-size: 40px;
+    }
+
+    .range-labels div {
+        font-size: 9px;
+    }
+
+    .health-disclaimer {
+        padding: 12px;
+    }
+}
+
+
+/* UNDERSTANDING BMI */
+.bmi-information {
+    background-color: #f6f6ff;
+}
+
+.info-title {
+    color: #171c4b;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.info-description {
+    color: #69708e;
+    font-size: 14px;
+}
+
+/* Category cards */
+.category-card {
+    height: 100%;
+    padding: 22px;
+    border-radius: 14px;
+    border: 1px solid transparent;
+}
+
+
+
+.category-card > i {
+    font-size: 28px;
+}
+
+.category-card h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 14px;
+}
+
+.category-card h4 {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 12px 0;
+}
+
+.category-card p {
+    font-size: 12px;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* Category colours */
+.underweight-card {
+    background-color: #fff7e5;
+    border-color: #f5e4b8;
+    color: #956500;
+}
+
+.normal-card {
+    background-color: #e8f9ef;
+    border-color: #c6ecd6;
+    color: #187749;
+}
+
+.overweight-card {
+    background-color: #fff0df;
+    border-color: #f3d7b5;
+    color: #a85b13;
+}
+
+.obesity-card {
+    background-color: #ffe9eb;
+    border-color: #f5cbd0;
+    color: #b83243;
+}
+
+
+/* FOOTER */
+.main-footer {
+    background-color: #ecebff;
+}
+
+.footer-text {
+    color: #555b7a;
+    font-size: 12px;
+}
+
+.footer-text span {
+    margin: 0 6px;
+    color: #6258e8;
+}
+
+.footer-note {
+    color: #6258e8;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+.footer-note i {
+    color: #e65a82;
+    margin-left: 5px;
+}
+
+

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- boostrap link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+       <!-- boostrap script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+    <!-- boostrap icons -->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.2/font/bootstrap-icons.min.css">
+
+     <!-- external css -->
+      <link rel="stylesheet" type="text/css" href="./style.css">
+
+
+</head>
+<body>
+    
+    <!-- ================= HEADER ================= -->
+    <nav class="navbar navbar-expand-lg bg-white main-navbar">
+        <div class="container">
+
+            <a class="navbar-brand d-flex align-items-center gap-2"
+               href="#home">
+
+                <i class="brand-logo bi bi-heart-pulse "></i>
+
+                <span>
+                    <span class="brand-highlight">BMI</span>
+                    Calculator
+                </span>
+            </a>
+
+            <!-- class="navbar-toggler"	Bootstrap styles this as a navbar toggle button. -->
+
+            <!-- type="button"	Makes it a regular button, not a form submission button. -->
+
+            <!-- data-bs-toggle="collapse"	Tells Bootstrap to show or hide a collapsible element when clicked. -->
+
+            <!-- data-bs-target="#navbarMenu"	Specifies which element the button controls. The # means an HTML element with that ID. -->
+
+            <!-- aria-controls="navbarMenu"	Accessibility information identifying the element controlled by the button. -->
+
+            <!-- aria-expanded="false"	Initially indicates that the menu is collapsed. Bootstrap updates this when the menu opens or closes. -->
+
+            <!-- aria-label="Toggle navigation"	Gives screen readers a descriptive name for the button. -->
+
+            <button
+                class="navbar-toggler" 
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarMenu"
+                aria-controls="navbarMenu"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+
+                <span class="navbar-toggler-icon"></span>
+                <!--navbar-toggler-icon is a boostrap icon class for that collapse button-->
+            </button>
+
+
+            <div class="collapse navbar-collapse" id="navbarMenu">
+                <ul class="navbar-nav ms-auto gap-lg-4">
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#health-tips">Health Tips</a>
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+<!-- hero section -->
+
+
+<!-- HERO SECTION -->
+<header class="hero-section" id="home">
+    <div class="container py-5">
+
+        <span class="hero-label">HEALTH &amp; WELLNESS</span>
+
+        <h1 class="hero-title mt-3">
+            Know Your BMI
+        </h1>
+
+        <p class="hero-description">
+            Understand your Body Mass Index with a simple
+            calculation based on your height and weight.
+        </p>
+
+        <div class="hero-features">
+
+            <p>
+                <i class="bi bi-shield-check"></i>
+                Simple and easy to use
+            </p>
+
+            <p>
+                <i class="bi bi-lightning-fill"></i>
+                Get results instantly
+            </p>
+
+            <p>
+                <i class="bi bi-heart"></i>
+                Make informed health choices
+            </p>
+
+        </div>
+
+    </div>
+</header>
+
+
+
+<!-- BMI CALCULATOR INPUT SECTION -->
+<section class="calculator-section" id="calculator">
+
+    <div class="container py-4">
+
+        <div class="calculator-card">
+
+            <!-- Section Heading -->
+            <h2>Calculate Your BMI</h2>
+
+            <p class="calculator-description">
+                Enter your height and weight below to calculate your BMI.
+            </p>
+
+            <!-- Input Form -->
+            <form id="bmiForm" novalidate>
+
+                <!-- Height Input -->
+                <div class="mb-3">
+
+                    <label for="height" class="form-label">
+                        Height (cm)
+                    </label>
+
+                    <input
+                        type="number"
+                        class="form-control"
+                        id="height"
+                        placeholder="e.g. 175"
+                        min="50"
+                        max="250"
+                        step="any"
+                        required
+                    >
+
+                </div>
+
+                <!-- Weight Input -->
+                <div class="mb-4">
+
+                    <label for="weight" class="form-label">
+                        Weight (kg)
+                    </label>
+
+                    <input
+                        type="number"
+                        class="form-control"
+                        id="weight"
+                        placeholder="e.g. 70"
+                        min="10"
+                        max="300"
+                        step="any"
+                        required
+                    >
+
+                </div>
+
+                <!-- Calculate Button -->
+                <button type="submit" class="btn calculate-btn w-100">
+                    <i class="bi bi-calculator me-2"></i>
+                    Calculate BMI
+                </button>
+
+                <!-- Reset Button -->
+                <button type="reset" class="btn reset-btn w-100 mt-2">
+                    <i class="bi bi-arrow-counterclockwise me-2"></i>
+                    Reset
+                </button>
+
+                <!-- Error Message -->
+                <p id="errorMessage"
+                   class="text-danger small mt-3 mb-0"
+                   role="alert"></p>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- BMI RESULT SECTION -->
+<section class="result-section" id="result">
+
+    <div class="result-card">
+
+        <h2>Your Result</h2>
+
+        <!-- Initial Message -->
+        <div id="emptyState" class="empty-state">
+            <i class="bi bi-calculator"></i>
+
+            <h3>Your result will appear here</h3>
+
+            <p>
+                Enter your height and weight to calculate your BMI.
+            </p>
+        </div>
+
+        <!-- BMI Result -->
+        <div id="resultContent" class="d-none">
+
+            <p class="result-label">YOUR BMI SCORE</p>
+
+            <div class="bmi-value">
+                <span id="bmiValue">0.00</span>
+                <span class="bmi-unit">kg/m²</span>
+            </div>
+
+            <!-- Category -->
+            <span id="categoryBadge" class="category-badge">
+                Normal Weight
+            </span>
+
+            <p id="resultDescription" class="result-description">
+                Your BMI result will appear here.
+            </p>
+
+            <!-- BMI Range Bar -->
+            <div class="bmi-range-bar">
+                <div class="range-segment underweight"></div>
+                <div class="range-segment normal"></div>
+                <div class="range-segment overweight"></div>
+                <div class="range-segment obesity"></div>
+                <div id="bmiMarker" class="bmi-marker"></div>
+            </div>
+
+            <!-- Category Labels -->
+            <div class="range-labels">
+                <div>
+                    <span>Underweight</span>
+                    <small>Below 18.5</small>
+                </div>
+
+                <div>
+                    <span>Normal</span>
+                    <small>18.5–24.9</small>
+                </div>
+
+                <div>
+                    <span>Overweight</span>
+                    <small>25–29.9</small>
+                </div>
+
+                <div>
+                    <span>Obesity</span>
+                    <small>30 and above</small>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Health Disclaimer -->
+        <div class="health-disclaimer">
+            <i class="bi bi-info-circle"></i>
+
+            <p>
+                BMI is a screening tool, not a diagnosis.
+                Results may vary for different body types and conditions.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- UNDERSTANDING BMI -->
+<section class="bmi-information" id="about">
+
+    <div class="container py-5">
+
+        <h2 class="info-title">Understanding BMI</h2>
+
+        <p class="info-description">
+            BMI categories for adults (18+ years)
+        </p>
+
+        <div class="row g-3 mt-3">
+
+            <!-- Underweight -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="category-card underweight-card">
+                    <i class="bi bi-person-standing"></i>
+                    <h3>Underweight</h3>
+                    <h4>Below 18.5</h4>
+                    <p>May indicate undernutrition or other health issues.</p>
+                </div>
+            </div>
+
+            <!-- Normal weight -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="category-card normal-card">
+                    <i class="bi bi-person-standing"></i>
+                    <h3>Normal weight</h3>
+                    <h4>18.5 – 24.9</h4>
+                    <p>Within the usual adult BMI reference range.</p>
+                </div>
+            </div>
+
+            <!-- Overweight -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="category-card overweight-card">
+                    <i class="bi bi-person-standing"></i>
+                    <h3>Overweight</h3>
+                    <h4>25 – 29.9</h4>
+                    <p>May be associated with increased health risks.</p>
+                </div>
+            </div>
+
+            <!-- Obesity -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="category-card obesity-card">
+                    <i class="bi bi-person-standing"></i>
+                    <h3>Obesity</h3>
+                    <h4>30 and above</h4>
+                    <p>Associated with increased risk of certain conditions.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer class="main-footer">
+    <div class="container py-4 text-center">
+
+        <p class="footer-text">
+            BMI Calculator
+            <span>•</span>
+            Built with HTML, CSS, Bootstrap &amp; JavaScript
+        </p>
+
+        <p class="footer-note">
+            Healthy choices for a better tomorrow
+            <i class="bi bi-heart-fill"></i>
+        </p>
+
+    </div>
+</footer>
+
+
+</body>
+
+
+<script src="./script.js"></script>
+</html>
