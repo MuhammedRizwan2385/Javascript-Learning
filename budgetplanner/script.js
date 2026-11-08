@@ -75,113 +75,13 @@ function login(){
 
 }
 
-// welcome
-
-// const homeuser=localStorage.getItem("loginUname");
-// head1.innerHTML=`Welcome ${homeuser}`;
-
-// function logout(){
-
-//     window.location.href="index.html";
-// }
-
-// income button function
-
-// var totalBalance=0;
-// var totalExpense=0;
-// function income(){
-//     let incomeType=document.getElementById("incometype").value;
-//     let incomeAmount=Number(document.getElementById("incomeamount").value);
-//     if(incomeAmount<=0||!incomeAmount){
-//         alert("Enter a valid Type and Amount");
-//         document.getElementById("incomeamount").value="";
-
-//     }
-//     else{
-//         totalBalance+=incomeAmount;
-        
-//         taking current date and time
-//         let now = new Date();
-//         let hours = now.getHours();
-//         let minutes = now.getMinutes();
-//         let seconds = now.getSeconds();
-
-//         let date=now.getDate();
-//         let month=now.getMonth()+1;
-//         let year=now.getFullYear();
-
-//         let DateAndTime=`${date}/${month}/${year} ${hours}:${minutes}:${seconds}`;
-
-//        let incomerow = `
-//         <tr>
-//             <td class="border-0 border-bottom border-2 border-success">${incomeType}</td>
-//             <td class="border-0 border-bottom border-2 border-success text-success fw-bold">+${incomeAmount}</td>
-//             <td class="border-0 border-bottom border-2 border-success">${totalBalance}</td>
-//             <td class="border-0 border-bottom border-2 border-success">${DateAndTime}</td>
-//         </tr>
-//         `;
-//         incomedetails.innerHTML+=incomerow;
-//         document.getElementById("balance").innerHTML=`Rs ${totalBalance}/-`
-
-//         alert("Income added successfully");
-//         document.getElementById("incomeamount").value="";
-//         document.getElementById("incometype").value="";
-        
-//     }
-// }
-
-// function expense(){
-//     let expenseType=document.getElementById("expensetype").value;
-//     let expenseAmount=Number(document.getElementById("expenseamount").value);
-//     if(expenseAmount<=0||!expenseAmount){
-//         alert("Enter a valid Type and Amount");
-//         document.getElementById("expenseamount").value="";
-
-//     }
-//     else{
-//         totalBalance-=expenseAmount;
-//         totalExpense+=expenseAmount;
-        
-//         taking current date and time
-//         let now = new Date();
-//         let hours = now.getHours();
-//         let minutes = now.getMinutes();
-//         let seconds = now.getSeconds();
-
-//         let date=now.getDate();
-//         let month=now.getMonth()+1;
-//         let year=now.getFullYear();
-
-//         let DateAndTime=`${date}/${month}/${year} ${hours}:${minutes}:${seconds}`;
-
-//        let expenserow = `
-//         <tr>
-//             <td class="border-0 border-bottom border-2 border-danger">${expenseType}</td>
-//             <td class="border-0 border-bottom border-2 border-danger text-danger fw-bold">-${expenseAmount}</td>
-//             <td class="border-0 border-bottom border-2 border-danger">${totalBalance}</td>
-//             <td class="border-0 border-bottom border-2 border-danger">${DateAndTime}</td>
-//         </tr>
-//         `;
-//         expensedetails.innerHTML+=expenserow;
-//         document.getElementById("expense").innerHTML=`Rs ${totalExpense}/-`
-//          document.getElementById("balance").innerHTML=`Rs ${totalBalance}/-`
-
-
-//         alert("expense added successfully");
-//         document.getElementById("expenseamount").value="";
-//         document.getElementById("expensetype").value="";
-
-        
-//     }
-// }
 
 
 
 // Welcome user
 const homeuser = localStorage.getItem("loginUname");
-if (head1) {
-    head1.innerHTML = `Welcome ${homeuser}`;
-}
+head1.innerHTML = `Welcome ${homeuser}`;
+
 
 // Initialize balances from localStorage for the specific user (default to 0 if none exists)
 var totalBalance = Number(localStorage.getItem(`balance_${homeuser}`)) || 0;

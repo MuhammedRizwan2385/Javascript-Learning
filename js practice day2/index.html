@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    
+      <!-- boostrap link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+       <!-- boostrap script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <h1 class="text-center">Student Records</h1>
+    <div class="container d-flex flex-column g-3 rounded-3 border shadow-lg justify-content-center ">
+        <label for="StudentID" class="form-label mt-3"> Student ID</label>
+         <input type="text" class="form-control mt-3" id="StudentID" placeholder="Enter Student ID">
+
+         <label for="Name" class="form-label mt-3"> Name</label>
+         <input type="text" class="form-control mt-3" id="Name" placeholder="Enter Name">
+
+         <label for="Course" class="form-label mt-3"> Course</label>
+         <input type="text" class="form-control mt-3" id="Course" placeholder="Enter Course">
+
+         <button class="btn  rounded-3 btn-primary mt-3 mb-3" onclick="addStudent()">Add Student</button>
+
+
+
+    </div>
+    <div class="container">
+        <table>
+            <thead >
+                <th class="border border-3 me-3 border-black ">Student ID</th>
+                <th class="border border-3 me-3 border-black">Name</th>
+                <th class="border border-3 me-3 border-black">Course</th>
+                <th class="border border-3 me-3 border-black">Actions</th>
+            </thead>
+            <tbody  id="result"> 
+
+            </tbody>
+        </table>
+    </div>
+</body>
+<script src="./script.js"></script>
+</html>

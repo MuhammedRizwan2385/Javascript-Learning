@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+
+    
+      <!-- boostrap link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+       <!-- boostrap script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+<h1>Todo List</h1>
+<table>
+    <thead>
+        <tr>
+            <td class="border border-3 border-dark">User Id</td>
+            <td class="border border-3 border-dark">Id</td>
+            <td class="border border-3 border-dark">Title</td>
+            <td class="border border-3 border-dark">Completed</td>
+        </tr>
+    </thead>
+    <tbody class="border border-3 border-dark " id="tododetails">
+
+    </tbody>
+</table>    
+
+</body>
+
+<script>
+
+// 1.create a new XMLHttpRequest object
+
+const response=new XMLHttpRequest();
+
+// 2.connecting api call
+
+response.open('get','https://jsonplaceholder.typicode.com/todos');
+
+//3. send request
+
+response.send()
+
+// 4 create a onreadystatechange
+
+response.onreadystatechange=()=>{
+    if(response.readyState==4){
+        if(response.status==200){
+            let todoArraay=JSON.parse(response.responseText);
+            displayData(todoArraay);
+        }
+    }
+}
+
+
+function displayData(todo){
+    const tododetails=document.getElementById('tododetails');
+    for(let items of todo ){
+    const tableHtml=
+    `
+    <tr>
+        <td class="border border-3 border-dark ">${items.userId}</td>
+        <td class="border border-3 border-dark ">${items.id}</td>
+        <td class="border border-3 border-dark ">${items.title}</td>
+        <td class="border border-3 border-dark ">${items.completed}</td>
+    </tr>
+    `
+    tododetails.innerHTML+=tableHtml;
+
+}
+}
+
+
+</script>
+</html>

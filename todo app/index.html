@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <!-- tailwind cdn -->
+   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-fuchsia-200">
+<div class="flex items-center min-h-screen">
+
+  <!-- Left side: Illustration -->
+  <div class="w-2/5 flex justify-center items-center">
+    <img
+      src="https://png.pngtree.com/png-clipart/20230906/ourmid/pngtree-to-do-list-paper-png-image_9695913.png"
+      class="w-52"
+      alt="To-do list illustration"
+    >
+  </div>
+
+  <!-- Right side: To-do list -->
+  <div class="w-3/5 p-10">
+    <p class="text-4xl font-bold text-center text-fuchsia-800">
+      My ToDo List
+    </p>
+
+    <form class="flex items-center max-w-2xl mx-auto mt-6">
+      <input
+        type="text"
+        id="taskInput"
+        class="bg-gray-50 border border-purple-300 rounded-2xl w-full px-4 py-4 shadow-sm"
+        placeholder="📋 Enter your list"
+        required
+      >
+
+      <button
+        onclick="addTask()"
+        type="button"
+        class="ms-3 rounded-full"
+      >
+        <img
+          src="https://cdn3d.iconscout.com/3d/premium/thumb/add-6332692-5209363.png"
+          class="w-12"
+          alt="Add task"
+        >
+      </button>
+    </form>
+
+    <ul id="taskList"></ul>
+  </div>
+
+</div> 
+  
+</body>
+<script src="./script.js"></script>
+</html>
